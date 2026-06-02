@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroBov</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: { 50:'#fff1f2',100:'#ffe4e6',200:'#fecdd3',300:'#fda4af',400:'#fb7185',500:'#f43f5e',600:'#e11d48',700:'#be123c',800:'#9f1239',900:'#881337' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .font-heading { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'Nunito', sans-serif; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    .anim-fade { animation: fadeUp 0.8s ease forwards; opacity:0; }
+    .anim-delay-1 { animation-delay: 0.2s; }
+    .anim-delay-2 { animation-delay: 0.4s; }
+    .anim-delay-3 { animation-delay: 0.6s; }
+    .anim-delay-4 { animation-delay: 0.8s; }
+    .anim-float { animation: float 3s ease-in-out infinite; }
+    .gradient-hero { background: linear-gradient(135deg, #9f1239 0%, #e11d48 40%, #fb7185 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(225,29,72,0.2); }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body class="h-full font-body">
+  <div id="app-wrapper" class="w-full h-full overflow-auto bg-rose-50"><!-- Nav -->
+   <nav class="w-full px-6 py-4 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <div class="flex items-center gap-2">
+     <div class="w-10 h-10 rounded-full gradient-hero flex items-center justify-center"><span class="text-white text-lg">🐄</span>
+     </div><span id="nav-title" class="font-heading font-bold text-xl text-rose-800">AgroEquilíbrio</span>
+    </div>
+    <div class="hidden md:flex gap-6 text-sm font-semibold text-rose-700"><a href="#sobre" class="hover:text-rose-500 transition">Sobre</a> <a href="#pilares" class="hover:text-rose-500 transition">Pilares</a> <a href="#gado" class="hover:text-rose-500 transition">Produção</a> <a href="#testemunhos" class="hover:text-rose-500 transition">Testemunhos</a> <a href="#blog" class="hover:text-rose-500 transition">Blog</a> <a href="#faq" class="hover:text-rose-500 transition">FAQ</a> <a href="#contato" class="hover:text-rose-500 transition">Contato</a>
+    </div>
+   </nav><!-- Hero -->
+   <header class="w-full gradient-hero py-24 px-6 text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+     <svg width="100%" height="100%">
+      <pattern id="dots" x="0" y="0" width="40" height="40" patternunits="userSpaceOnUse">
+       <circle cx="20" cy="20" r="2" fill="white" />
+      </pattern><rect fill="url(#dots)" width="100%" height="100%" />
+     </svg>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+     <h1 id="hero-title" class="font-heading text-5xl md:text-7xl font-900 text-white anim-fade">AgroBov</h1>
+     <p id="hero-subtitle" class="text-rose-100 text-xl md:text-2xl mt-6 font-light anim-fade anim-delay-1">Agro Forte, Futuro Sustentável</p>
+     <p id="hero-mission" class="text-rose-200 text-base md:text-lg mt-4 max-w-2xl mx-auto anim-fade anim-delay-2">Promovendo o equilíbrio entre produção pecuária e preservação do meio ambiente para um futuro próspero e verde.</p>
+     <div class="mt-10 anim-fade anim-delay-3"><a href="#gado" class="inline-block bg-white text-rose-700 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all">Conheça Nossa Produção</a>
+     </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full">
+     <svg viewbox="0 0 1440 100" fill="none">
+      <path d="M0,80 C360,20 720,100 1440,40 L1440,100 L0,100 Z" fill="#fff1f2" />
+     </svg>
+    </div>
+   </header><!-- Sobre -->
+   <section id="sobre" class="w-full max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-12 anim-fade">
+     <h2 class="font-heading text-4xl font-bold text-rose-800">Sobre Nós</h2>
+     <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+     <div class="anim-fade anim-delay-1">
+      <p class="text-rose-900 text-lg leading-relaxed">Acreditamos que o gado bem manejado regenera pastagens, sequestra carbono e gera renda para milhares de famílias.</p>
+      <p class="text-rose-700 mt-4 leading-relaxed">O <strong>AgroBov</strong> nasceu da convicção de que a pecuária moderna pode ser produtiva e sustentável ao mesmo tempo. Nossa missão é mostrar que produção de gado e meio ambiente não são inimigos — são parceiros quando trabalhamos com ciência, respeito e inovação.</p>
+     </div>
+     <div class="anim-fade anim-delay-2 flex justify-center">
+      <div class="w-72 h-72 rounded-3xl gradient-hero flex items-center justify-center shadow-2xl anim-float"><span class="text-8xl">🌿🐂</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Pilares -->
+   <section id="pilares" class="w-full bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-14 anim-fade">
+      <h2 class="font-heading text-4xl font-bold text-rose-800">Nossos Pilares</h2>
+      <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-rose-50 rounded-2xl p-8 text-center card-hover anim-fade anim-delay-1">
+       <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-3xl">🌱</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-rose-800 mb-3">Sustentabilidade</h3>
+       <p class="text-rose-700 text-sm">Pastagens regenerativas, manejo rotacionado e integração lavoura-pecuária-floresta para reduzir impacto ambiental.</p>
+      </div>
+      <div class="bg-rose-50 rounded-2xl p-8 text-center card-hover anim-fade anim-delay-2">
+       <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-3xl">📈</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-rose-800 mb-3">Produtividade</h3>
+       <p class="text-rose-700 text-sm">Genética de qualidade, nutrição de precisão e tecnologias que aumentam a produção por hectare de forma responsável.</p>
+      </div>
+      <div class="bg-rose-50 rounded-2xl p-8 text-center card-hover anim-fade anim-delay-3">
+       <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-3xl">🤝</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-rose-800 mb-3">Comunidade</h3>
+       <p class="text-rose-700 text-sm">Capacitação de produtores rurais, comércio justo e desenvolvimento econômico das comunidades locais.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Produção de Gado -->
+   <section id="gado" class="w-full py-20 px-6 bg-rose-50">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-14 anim-fade">
+      <h2 class="font-heading text-4xl font-bold text-rose-800">Produção de Gado Sustentável</h2>
+      <p class="text-rose-600 mt-3 max-w-2xl mx-auto">Como produzimos carne de qualidade respeitando o meio ambiente e o bem-estar animal.</p>
+      <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-1">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
+         <i data-lucide="leaf" class="text-rose-600 w-6 h-6"></i>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-rose-800">Pasto Rotacionado</h3>
+       </div>
+       <p class="text-rose-700 text-sm leading-relaxed">Dividimos as pastagens em piquetes, permitindo recuperação natural do solo e da vegetação. Isso aumenta a capacidade de suporte e sequestra carbono.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-2">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
+         <i data-lucide="heart" class="text-rose-600 w-6 h-6"></i>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-rose-800">Bem-Estar Animal</h3>
+       </div>
+       <p class="text-rose-700 text-sm leading-relaxed">Gado criado a pasto com acesso a sombra, água limpa e espaço adequado. Animais saudáveis produzem carne de maior qualidade.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-3">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
+         <i data-lucide="trending-up" class="text-rose-600 w-6 h-6"></i>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-rose-800">Genética &amp; Nutrição</h3>
+       </div>
+       <p class="text-rose-700 text-sm leading-relaxed">Seleção genética para eficiência alimentar e suplementação estratégica que reduz o tempo de abate e a emissão de metano.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-4">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center">
+         <i data-lucide="trees" class="text-rose-600 w-6 h-6"></i>
+        </div>
+        <h3 class="font-heading text-lg font-bold text-rose-800">Integração com Floresta</h3>
+       </div>
+       <p class="text-rose-700 text-sm leading-relaxed">Sistemas silvipastoris com árvores nas pastagens: conforto térmico para o gado, diversificação de renda e preservação da biodiversidade.</p>
+      </div>
+     </div><!-- Stats -->
+     <div class="bg-white rounded-3xl p-10 shadow-lg anim-fade">
+      <h3 class="font-heading text-2xl font-bold text-rose-800 text-center mb-8">Nossos Resultados</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+       <div>
+        <p class="text-3xl font-bold text-rose-600">+40%</p>
+        <p class="text-rose-700 text-xs mt-1">Produtividade por hectare</p>
+       </div>
+       <div>
+        <p class="text-3xl font-bold text-rose-600">-30%</p>
+        <p class="text-rose-700 text-xs mt-1">Emissão de metano</p>
+       </div>
+       <div>
+        <p class="text-3xl font-bold text-rose-600">500+</p>
+        <p class="text-rose-700 text-xs mt-1">Produtores parceiros</p>
+       </div>
+       <div>
+        <p class="text-3xl font-bold text-rose-600">12mil</p>
+        <p class="text-rose-700 text-xs mt-1">Hectares regenerados</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contato -->
+   <section id="testemunhos" class="w-full py-20 px-6 bg-rose-50">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-14 anim-fade">
+      <h2 id="testimonials-title" class="font-heading text-4xl font-bold text-rose-800">O Que Dizem Nossos Parceiros</h2>
+      <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-1">
+       <div class="flex items-center gap-1 mb-4">
+        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+       </div>
+       <p class="text-rose-700 italic mb-4">"Com o AgroEquilíbrio, minha produtividade aumentou 45% e estou com tranquilidade de cumprir compromissos ambientais. Recomendo!"</p>
+       <p class="font-semibold text-rose-800">— Carlos Mendes</p>
+       <p class="text-rose-600 text-sm">Produtor Rural, Mato Grosso</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-2">
+       <div class="flex items-center gap-1 mb-4">
+        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+       </div>
+       <p class="text-rose-700 italic mb-4">"Meu rebanho está mais saudável, o custo de produção caiu e minha terra melhorou. É um modelo que funciona de verdade."</p>
+       <p class="font-semibold text-rose-800">— Fabiana Silva</p>
+       <p class="text-rose-600 text-sm">Pecuarista, São Paulo</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-md card-hover anim-fade anim-delay-3">
+       <div class="flex items-center gap-1 mb-4">
+        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+       </div>
+       <p class="text-rose-700 italic mb-4">"AgroEquilíbrio me abriu portas para novos mercados que valorizam sustentabilidade. Negócio mais lucrativo e consciente."</p>
+       <p class="font-semibold text-rose-800">— Roberto Campos</p>
+       <p class="text-rose-600 text-sm">Criador, Rio Grande do Sul</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Blog -->
+   <section id="blog" class="w-full bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-14 anim-fade">
+      <h2 id="blog-title" class="font-heading text-4xl font-bold text-rose-800">Notícias &amp; Insights</h2>
+      <p class="text-rose-600 mt-3">Conheça tendências e boas práticas em pecuária sustentável</p>
+      <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <article class="bg-rose-50 rounded-2xl overflow-hidden card-hover anim-fade anim-delay-1">
+       <div class="h-48 bg-gradient-to-br from-rose-300 to-rose-500 flex items-center justify-center">
+        <span class="text-6xl">🌾</span>
+       </div>
+       <div class="p-6">
+        <p class="text-rose-500 text-xs font-bold uppercase tracking-wide">Manejo de Pastagens</p>
+        <h3 class="font-heading text-lg font-bold text-rose-800 mt-2">Rotação de Piquetes: Aumentando Produtividade</h3>
+        <p class="text-rose-700 text-sm mt-3">Descubra como o manejo rotacionado pode regenerar seus solos e aumentar o ganho de peso do rebanho em até 50%.</p><a href="#" class="inline-block mt-4 text-rose-600 font-semibold text-sm hover:text-rose-700">Leia mais →</a>
+       </div>
+      </article>
+      <article class="bg-rose-50 rounded-2xl overflow-hidden card-hover anim-fade anim-delay-2">
+       <div class="h-48 bg-gradient-to-br from-green-300 to-green-500 flex items-center justify-center">
+        <span class="text-6xl">🌳</span>
+       </div>
+       <div class="p-6">
+        <p class="text-green-600 text-xs font-bold uppercase tracking-wide">Silvipastoril</p>
+        <h3 class="font-heading text-lg font-bold text-rose-800 mt-2">Árvores nas Pastagens: Múltiplos Benefícios</h3>
+        <p class="text-rose-700 text-sm mt-3">Integrar árvores melhora o bem-estar animal, sequestra carbono e gera receita adicional com madeira e frutos.</p><a href="#" class="inline-block mt-4 text-rose-600 font-semibold text-sm hover:text-rose-700">Leia mais →</a>
+       </div>
+      </article>
+      <article class="bg-rose-50 rounded-2xl overflow-hidden card-hover anim-fade anim-delay-3">
+       <div class="h-48 bg-gradient-to-br from-blue-300 to-blue-500 flex items-center justify-center">
+        <span class="text-6xl">🔬</span>
+       </div>
+       <div class="p-6">
+        <p class="text-blue-600 text-xs font-bold uppercase tracking-wide">Inovação</p>
+        <h3 class="font-heading text-lg font-bold text-rose-800 mt-2">Tecnologia Reduz Emissão de Metano</h3>
+        <p class="text-rose-700 text-sm mt-3">Conheça os últimos avanços em suplementação que reduzem as emissões de gases de efeito estufa do rebanho.</p><a href="#" class="inline-block mt-4 text-rose-600 font-semibold text-sm hover:text-rose-700">Leia mais →</a>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section><!-- FAQ -->
+   <section id="faq" class="w-full bg-rose-50 py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-14 anim-fade">
+      <h2 id="faq-title" class="font-heading text-4xl font-bold text-rose-800">Dúvidas Comuns</h2>
+      <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full"></div>
+     </div>
+     <div class="space-y-4">
+      <details class="group bg-white rounded-xl p-6 shadow-md cursor-pointer anim-fade anim-delay-1">
+       <summary class="flex items-center justify-between font-semibold text-rose-800"> <span>Quanto tempo leva para ver resultados?</span> <i data-lucide="chevron-down" class="w-5 h-5 text-rose-600 group-open:rotate-180 transition"></i> </summary>
+       <p class="text-rose-700 mt-4 text-sm leading-relaxed">A maioria dos produtores observa melhorias no ganho de peso e na qualidade do pasto nos primeiros 3-6 meses. Impactos ambientais mais significativos aparecem em 1-2 anos de prática consistente.</p>
+      </details>
+      <details class="group bg-white rounded-xl p-6 shadow-md cursor-pointer anim-fade anim-delay-2">
+       <summary class="flex items-center justify-between font-semibold text-rose-800"> <span>Qual é o investimento inicial?</span> <i data-lucide="chevron-down" class="w-5 h-5 text-rose-600 group-open:rotate-180 transition"></i> </summary>
+       <p class="text-rose-700 mt-4 text-sm leading-relaxed">Depende do tamanho da propriedade e da infraestrutura atual. Pequenas propriedades podem começar com investimentos modestos em cerca móvel e irrigação. Oferecemos consultoria personalizada para sua situação.</p>
+      </details>
+      <details class="group bg-white rounded-xl p-6 shadow-md cursor-pointer anim-fade anim-delay-3">
+       <summary class="flex items-center justify-between font-semibold text-rose-800"> <span>Como a pecuária regenera o solo?</span> <i data-lucide="chevron-down" class="w-5 h-5 text-rose-600 group-open:rotate-180 transition"></i> </summary>
+       <p class="text-rose-700 mt-4 text-sm leading-relaxed">O gado em pastejo bem manejado estimula o crescimento de plantas, que fortalecem a microvida do solo. Os dejetos fertilizam naturalmente, e a rotação permite recuperação de vegetação. Resultado: mais matéria orgânica e solos mais vivos.</p>
+      </details>
+      <details class="group bg-white rounded-xl p-6 shadow-md cursor-pointer anim-fade anim-delay-4">
+       <summary class="flex items-center justify-between font-semibold text-rose-800"> <span>É possível ser rentável sendo sustentável?</span> <i data-lucide="chevron-down" class="w-5 h-5 text-rose-600 group-open:rotate-180 transition"></i> </summary>
+       <p class="text-rose-700 mt-4 text-sm leading-relaxed">Absolutamente! Reduz custos com insumos, melhora a saúde do rebanho, abre acesso a mercados premium e reduz riscos climáticos. Sustentabilidade é economia inteligente a longo prazo.</p>
+      </details>
+     </div>
+    </div>
+   </section><!-- Contato -->
+   <div class="max-w-2xl mx-auto text-center anim-fade">
+    <h2 class="font-heading text-4xl font-bold text-rose-800">Fale Conosco</h2>
+    <div class="w-20 h-1 bg-rose-400 mx-auto mt-4 rounded-full mb-8"></div>
+    <form id="contact-form" class="text-left space-y-5">
+     <div><label for="name" class="block text-sm font-semibold text-rose-700 mb-1">Nome</label> <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 bg-rose-50" placeholder="Seu nome">
+     </div>
+     <div><label for="email" class="block text-sm font-semibold text-rose-700 mb-1">E-mail</label> <input type="email" id="email" class="w-full px-4 py-3 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 bg-rose-50" placeholder="seu@email.com">
+     </div>
+     <div><label for="message" class="block text-sm font-semibold text-rose-700 mb-1">Mensagem</label> <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 bg-rose-50 resize-none" placeholder="Como podemos ajudar?"></textarea>
+     </div><button type="submit" class="w-full py-4 rounded-xl gradient-hero text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">Enviar Mensagem</button>
+     <p id="form-success" class="hidden text-center text-rose-600 font-semibold mt-3">✅ Mensagem enviada com sucesso!</p>
+    </form>
+   </div><!-- Footer -->
+   <footer class="w-full gradient-hero py-10 px-6 text-center">
+    <p id="footer-text" class="text-rose-100 font-light">© 2024 AgroBov — Agro Forte, Futuro Sustentável</p>
+    <p class="text-rose-200 text-sm mt-2">Produção responsável para um mundo melhor 🌍</p>
+   </footer>
+  </div>
+  <script>
+  // Element SDK
+  const defaultConfig = {
+    site_title: 'AgroBov',
+    hero_subtitle: 'Agro Forte, Futuro Sustentável',
+    mission_text: 'Promovendo o equilíbrio entre produção pecuária e preservação do meio ambiente para um futuro próspero e verde.',
+    testimonials_title: 'O Que Dizem Nossos Parceiros',
+    blog_title: 'Notícias & Insights',
+    faq_title: 'Dúvidas Comuns',
+    background_color: '#fff1f2',
+    surface_color: '#ffffff',
+    text_color: '#9f1239',
+    primary_action_color: '#e11d48',
+    secondary_action_color: '#fb7185',
+    font_family: 'Playfair Display',
+    font_size: 16
+  };
+
+  async function onConfigChange(config) {
+    const c = { ...defaultConfig, ...config };
+    document.getElementById('nav-title').textContent = c.site_title;
+    document.getElementById('hero-title').textContent = c.site_title;
+    document.getElementById('hero-subtitle').textContent = c.hero_subtitle;
+    document.getElementById('hero-mission').textContent = c.mission_text;
+    document.getElementById('testimonials-title').textContent = c.testimonials_title;
+    document.getElementById('blog-title').textContent = c.blog_title;
+    document.getElementById('faq-title').textContent = c.faq_title;
+
+    // Colors
+    document.getElementById('app-wrapper').style.backgroundColor = c.background_color;
+    document.querySelectorAll('.bg-white, [class*="bg-white"]').forEach(el => {
+      if (!el.classList.contains('gradient-hero')) el.style.backgroundColor = c.surface_color;
+    });
+    document.querySelectorAll('.text-rose-800, .text-rose-900').forEach(el => el.style.color = c.text_color);
+    document.querySelectorAll('.gradient-hero').forEach(el => el.style.background = `linear-gradient(135deg, ${c.text_color}, ${c.primary_action_color}, ${c.secondary_action_color})`);
+
+    // Font
+    const font = c.font_family || defaultConfig.font_family;
+    document.querySelectorAll('.font-heading').forEach(el => el.style.fontFamily = `${font}, serif`);
+    const base = c.font_size || defaultConfig.font_size;
+    document.querySelectorAll('p, label, a').forEach(el => el.style.fontSize = `${base}px`);
+    document.querySelectorAll('h2').forEach(el => el.style.fontSize = `${base * 2.2}px`);
+    document.querySelectorAll('h1').forEach(el => el.style.fontSize = `${base * 3.5}px`);
+    document.querySelectorAll('h3').forEach(el => el.style.fontSize = `${base * 1.3}px`);
+  }
+
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange,
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['site_title', config.site_title || defaultConfig.site_title],
+      ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+      ['mission_text', config.mission_text || defaultConfig.mission_text],
+      ['testimonials_title', config.testimonials_title || defaultConfig.testimonials_title],
+      ['blog_title', config.blog_title || defaultConfig.blog_title],
+      ['faq_title', config.faq_title || defaultConfig.faq_title]
+    ])
+  });
+
+  // Form
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('form-success').classList.remove('hidden');
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 3000);
+  });
+
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a05728889d7fae69',t:'MTc4MDQxMDY1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
